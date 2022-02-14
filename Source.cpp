@@ -8,8 +8,7 @@
 
 using namespace std;
 
-// Проверка введнных значений на корректность
-
+// РџСЂРѕРІРµСЂРєР° РІРІРµРґРЅРЅС‹С… Р·РЅР°С‡РµРЅРёР№ РЅР° РєРѕСЂСЂРµРєС‚РЅРѕСЃС‚СЊ
 void f_input_check(float& a, const char* word)
 {
 
@@ -19,7 +18,7 @@ void f_input_check(float& a, const char* word)
 		cin.clear();
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-		cerr << "Неккоректный ввод " << word << "!!! Введите " << word << " заново!!!" << endl;
+		cerr << "РќРµРєРєРѕСЂРµРєС‚РЅС‹Р№ РІРІРѕРґ " << word << "!!! Р’РІРµРґРёС‚Рµ " << word << " Р·Р°РЅРѕРІРѕ!!!" << endl;
 		cout << word << " = ";
 
 		cin >> a;
@@ -38,7 +37,7 @@ void f_input_check(float& a, const char& word)
 		cin.clear();
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-		cerr << "Неккоректный ввод " << word << "!!! Введите " << word << " заново!!!" << endl;
+		cerr << ""РќРµРєРєРѕСЂРµРєС‚РЅС‹Р№ РІРІРѕРґ " << word << "!!!Р’РІРµРґРёС‚Рµ " << word << " Р·Р°РЅРѕРІРѕ!!!" << endl;
 		cout << word << " = ";
 
 		cin >> a;
@@ -48,7 +47,7 @@ void f_input_check(float& a, const char& word)
 
 }
 
-// Ввод коэффов
+// Р’РІРѕРґ РєРѕСЌС„С„РёС†РёРµРЅС‚РѕРІ
 
 void f_input_k(float& a, float& b, float& c)
 {
@@ -57,7 +56,7 @@ void f_input_k(float& a, float& b, float& c)
 	char let_B = 'B';
 	char let_C = 'C';
 
-	cout << "Введите коэффициенты: " << endl;
+	cout << "Р’РІРµРґРёС‚Рµ РєРѕСЌС„С„РёС†РёРµРЅС‚С‹: " << endl;
 	cout << "A = ";
 	cin >> a;
 	cout << endl;
@@ -78,7 +77,7 @@ void f_input_k(float& a, float& b, float& c)
 
 }
 
-// Ввод шага и границ
+// Р’РІРѕРґ С€Р°РіР° Рё РіСЂР°РЅРёС†
 
 void f_input_x(float& out_x_min, float& out_dx, float& out_x_max)
 {
@@ -93,7 +92,7 @@ void f_input_x(float& out_x_min, float& out_dx, float& out_x_max)
 
 	f_input_check(out_x_min, word_min);
 
-	cout << "Введите шаг и границы интервала: " << endl;
+	cout << "Р’РІРµРґРёС‚Рµ С€Р°Рі Рё РіСЂР°РЅРёС†С‹ РёРЅС‚РµСЂРІР°Р»Р°: " << endl;
 	cout << "dx = ";
 	cin >> out_dx;
 	cout << endl;
@@ -103,8 +102,8 @@ void f_input_x(float& out_x_min, float& out_dx, float& out_x_max)
 	while (out_dx == 0)
 	{
 
-		cerr << "Шаг не может быть равен 0!!!" << endl;
-		cout << "Введите шаг заново!!!" << endl;
+		cerr << "РЁР°Рі РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ СЂР°РІРµРЅ 0!!!" << endl;
+		cout << "Р’РІРµРґРёС‚Рµ С€Р°Рі Р·Р°РЅРѕРІРѕ!!!" << endl;
 		cout << "dx = ";
 		cin >> out_dx;
 		cout << endl;
@@ -121,7 +120,7 @@ void f_input_x(float& out_x_min, float& out_dx, float& out_x_max)
 
 }
 
-// Проверка шага и границ
+// РџСЂРѕРІРµСЂРєР° С€Р°РіР° Рё РіСЂР°РЅРёС†
 
 void f_check_input_x(float& x_min, float& dx, float& x_max)
 {
@@ -140,8 +139,8 @@ void f_check_input_x(float& x_min, float& dx, float& x_max)
 			x_max = buff;
 
 
-			cerr << "Некорректно заданы границы функции: xMin > xMax" << endl;
-			cout << "Левая и правая граница были переставлены: " << "xMin = "
+			cerr << "РќРµРєРѕСЂСЂРµРєС‚РЅРѕ Р·Р°РґР°РЅС‹ РіСЂР°РЅРёС†С‹ С„СѓРЅРєС†РёРё: xMin > xMax" << endl;
+			cout << "Р›РµРІР°СЏ Рё РїСЂР°РІР°СЏ РіСЂР°РЅРёС†Р° Р±С‹Р»Рё РїРµСЂРµСЃС‚Р°РІР»РµРЅС‹: " << "xMin = "
 				<< x_min << " xMax = " << x_max << endl;
 
 		}
@@ -151,7 +150,7 @@ void f_check_input_x(float& x_min, float& dx, float& x_max)
 		if (abs(dx) > abs(buff))
 		{
 
-			cerr << "Шаг функции dx больше длины интервала функции!!! Данные некорректны!!! Проверьте их и введите заново!!!" << endl;
+			cerr << "РЁР°Рі С„СѓРЅРєС†РёРё dx Р±РѕР»СЊС€Рµ РґР»РёРЅС‹ РёРЅС‚РµСЂРІР°Р»Р° С„СѓРЅРєС†РёРё!!! Р”Р°РЅРЅС‹Рµ РЅРµРєРѕСЂСЂРµРєС‚РЅС‹!!! РџСЂРѕРІРµСЂСЊС‚Рµ РёС… Рё РІРІРµРґРёС‚Рµ Р·Р°РЅРѕРІРѕ!!!" << endl;
 
 			f_input_x(x_min, dx, x_max);
 
@@ -168,12 +167,12 @@ void f_check_input_x(float& x_min, float& dx, float& x_max)
 
 }
 
-// Проверка ОДЗ и расчет функций
+// ГЏГ°Г®ГўГҐГ°ГЄГ  ГЋГ„Г‡ ГЁ Г°Г Г±Г·ГҐГІ ГґГіГ­ГЄГ¶ГЁГ©
 
 bool f_logic(float in_a, float in_b, float in_c, float& in_res, float in_x)
 {
 
-	// Проверка ОДЗ 1ой функции
+	// ГЏГ°Г®ГўГҐГ°ГЄГ  ГЋГ„Г‡ 1Г®Г© ГґГіГ­ГЄГ¶ГЁГЁ
 
 	if ((in_x < 0) && (in_b != 0))
 	{
@@ -195,7 +194,7 @@ bool f_logic(float in_a, float in_b, float in_c, float& in_res, float in_x)
 
 	}
 
-	// Проверка ОДЗ 2ой функции
+	// ГЏГ°Г®ГўГҐГ°ГЄГ  ГЋГ„Г‡ 2Г®Г© ГґГіГ­ГЄГ¶ГЁГЁ
 	else
 	{
 		if ((in_x > 0) && (in_b == 0))
@@ -218,7 +217,7 @@ bool f_logic(float in_a, float in_b, float in_c, float& in_res, float in_x)
 
 		}
 
-		// Проверка ОДЗ 3й функции
+		// ГЏГ°Г®ГўГҐГ°ГЄГ  ГЋГ„Г‡ 3Г© ГґГіГ­ГЄГ¶ГЁГЁ
 
 		else
 		{
@@ -245,26 +244,26 @@ bool f_logic(float in_a, float in_b, float in_c, float& in_res, float in_x)
 
 }
 
-// Построение таблицы
+// ГЏГ®Г±ГІГ°Г®ГҐГ­ГЁГҐ ГІГ ГЎГ«ГЁГ¶Г»
 
 void f_out_table(const float* a, const float* b, const float* c, const float* x_min, const float* dx, const float* x_max)
 {
 
 	float res = 0;
 
-	cout << "Функция выглядит следующим образом: " << endl;
+	cout << "Г”ГіГ­ГЄГ¶ГЁГї ГўГ»ГЈГ«ГїГ¤ГЁГІ Г±Г«ГҐГ¤ГіГѕГ№ГЁГ¬ Г®ГЎГ°Г Г§Г®Г¬: " << endl;
 
-	cout << "F(х)= " << "- ((2*x - " << *c << ") / (" << *c
-		<< "*x - " << *a << "))" << " при х < 0 и b != 0" << endl;
+	cout << "F(Гµ)= " << "- ((2*x - " << *c << ") / (" << *c
+		<< "*x - " << *a << "))" << " ГЇГ°ГЁ Гµ < 0 ГЁ b != 0" << endl;
 
 	cout << "F(x)= " << "(x - " << *a << ") / (x - " << *c << ")"
-		<< " при х > 0 и b = 0" << endl;
+		<< " ГЇГ°ГЁ Гµ > 0 ГЁ b = 0" << endl;
 
 	cout << "F(x)= " << "- (x / " << *c << ") - (" << *c
-		<< " / (2*x))" << " во всех остальных случаях" << endl;
+		<< " / (2*x))" << " ГўГ® ГўГ±ГҐГµ Г®Г±ГІГ Г«ГјГ­Г»Гµ Г±Г«ГіГ·Г ГїГµ" << endl;
 	cout << endl;
 
-	cout << "Таблица значений F(x)" << endl;
+	cout << "Г’Г ГЎГ«ГЁГ¶Г  Г§Г­Г Г·ГҐГ­ГЁГ© F(x)" << endl;
 
 	for (int i = 0; i < 66; i++)
 	{
@@ -275,7 +274,7 @@ void f_out_table(const float* a, const float* b, const float* c, const float* x_
 
 	cout << endl;
 
-	cout << "| " << setw(30) << "Значение Х " << "| " << setw(30) << "Значение F(x)" << " |" << endl;
+	cout << "| " << setw(30) << "Г‡Г­Г Г·ГҐГ­ГЁГҐ Г• " << "| " << setw(30) << "Г‡Г­Г Г·ГҐГ­ГЁГҐ F(x)" << " |" << endl;
 
 	for (int i = 0; i < 66; i++)
 	{
@@ -291,19 +290,19 @@ void f_out_table(const float* a, const float* b, const float* c, const float* x_
 
 		cout << "| " << setw(29) << i << " | ";
 
-		// Проверка ОДЗ функции
+		// ГЏГ°Г®ГўГҐГ°ГЄГ  ГЋГ„Г‡ ГґГіГ­ГЄГ¶ГЁГЁ
 
 		if (f_logic(*a, *b, *c, res, i) == 0)
 		{
 
-			cout << setw(30) << "Вне ОДЗ" << " |" << endl;
+			cout << setw(30) << "Г‚Г­ГҐ ГЋГ„Г‡" << " |" << endl;
 
 		}
 
 		else
 		{
 
-			cout << setw(30) << res << " |" << endl; // Вывод результатов расчета функции
+			cout << setw(30) << res << " |" << endl; // Г‚Г»ГўГ®Г¤ Г°ГҐГ§ГіГ«ГјГІГ ГІГ®Гў Г°Г Г±Г·ГҐГІГ  ГґГіГ­ГЄГ¶ГЁГЁ
 
 		}
 
@@ -326,18 +325,18 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	// Инициализация переменных
+	// Г€Г­ГЁГ¶ГЁГ Г«ГЁГ§Г Г¶ГЁГї ГЇГҐГ°ГҐГ¬ГҐГ­Г­Г»Гµ
 
 	float a{}, b{}, c{}, dx{}, x_min{}, x_max{};
 
 
-	f_input_k(a, b, c);								// Ввод коэффов
+	f_input_k(a, b, c);								// Г‚ГўГ®Г¤ ГЄГ®ГЅГґГґГ®Гў
 
-	f_input_x(x_min, dx, x_max);					// ВВод границ и шага
+	f_input_x(x_min, dx, x_max);					// Г‚Г‚Г®Г¤ ГЈГ°Г Г­ГЁГ¶ ГЁ ГёГ ГЈГ 
 
-	f_check_input_x(x_min, dx, x_max);				// Проверка границ и шага
+	f_check_input_x(x_min, dx, x_max);				// ГЏГ°Г®ГўГҐГ°ГЄГ  ГЈГ°Г Г­ГЁГ¶ ГЁ ГёГ ГЈГ 
 
-	f_out_table(&a, &b, &c, &x_min, &dx, &x_max);	// Расчет функций и построение таблицы
+	f_out_table(&a, &b, &c, &x_min, &dx, &x_max);	// ГђГ Г±Г·ГҐГІ ГґГіГ­ГЄГ¶ГЁГ© ГЁ ГЇГ®Г±ГІГ°Г®ГҐГ­ГЁГҐ ГІГ ГЎГ«ГЁГ¶Г»
 
 	system("pause");
 
