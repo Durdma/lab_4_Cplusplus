@@ -167,12 +167,12 @@ void f_check_input_x(float& x_min, float& dx, float& x_max)
 
 }
 
-// Ïðîâåðêà ÎÄÇ è ðàñ÷åò ôóíêöèé
+// Проверка ОДЗ и расчет функций
 
 bool f_logic(float in_a, float in_b, float in_c, float& in_res, float in_x)
 {
 
-	// Ïðîâåðêà ÎÄÇ 1îé ôóíêöèè
+	// Проверка ОДЗ 1ой функции
 
 	if ((in_x < 0) && (in_b != 0))
 	{
@@ -194,7 +194,7 @@ bool f_logic(float in_a, float in_b, float in_c, float& in_res, float in_x)
 
 	}
 
-	// Ïðîâåðêà ÎÄÇ 2îé ôóíêöèè
+	// Проверка ОДЗ 2ой функции
 	else
 	{
 		if ((in_x > 0) && (in_b == 0))
@@ -217,7 +217,7 @@ bool f_logic(float in_a, float in_b, float in_c, float& in_res, float in_x)
 
 		}
 
-		// Ïðîâåðêà ÎÄÇ 3é ôóíêöèè
+		// Проверка ОДЗ 3й функции
 
 		else
 		{
@@ -244,26 +244,26 @@ bool f_logic(float in_a, float in_b, float in_c, float& in_res, float in_x)
 
 }
 
-// Ïîñòðîåíèå òàáëèöû
+// Построение таблицы
 
 void f_out_table(const float* a, const float* b, const float* c, const float* x_min, const float* dx, const float* x_max)
 {
 
 	float res = 0;
 
-	cout << "Ôóíêöèÿ âûãëÿäèò ñëåäóþùèì îáðàçîì: " << endl;
+	cout << "Функция выглядит следующим образом: " << endl;
 
 	cout << "F(õ)= " << "- ((2*x - " << *c << ") / (" << *c
-		<< "*x - " << *a << "))" << " ïðè õ < 0 è b != 0" << endl;
+		<< "*x - " << *a << "))" << " при х < 0 и b != 0" << endl;
 
 	cout << "F(x)= " << "(x - " << *a << ") / (x - " << *c << ")"
-		<< " ïðè õ > 0 è b = 0" << endl;
+		<< " при х > 0 и b = 0" << endl;
 
 	cout << "F(x)= " << "- (x / " << *c << ") - (" << *c
-		<< " / (2*x))" << " âî âñåõ îñòàëüíûõ ñëó÷àÿõ" << endl;
+		<< " / (2*x))" << " во всех остальных случаях" << endl;
 	cout << endl;
 
-	cout << "Òàáëèöà çíà÷åíèé F(x)" << endl;
+	cout << "Таблица значений F(x)" << endl;
 
 	for (int i = 0; i < 66; i++)
 	{
@@ -274,7 +274,7 @@ void f_out_table(const float* a, const float* b, const float* c, const float* x_
 
 	cout << endl;
 
-	cout << "| " << setw(30) << "Çíà÷åíèå Õ " << "| " << setw(30) << "Çíà÷åíèå F(x)" << " |" << endl;
+	cout << "| " << setw(30) << "Значение Х " << "| " << setw(30) << "Значение F(x)" << " |" << endl;
 
 	for (int i = 0; i < 66; i++)
 	{
@@ -290,19 +290,19 @@ void f_out_table(const float* a, const float* b, const float* c, const float* x_
 
 		cout << "| " << setw(29) << i << " | ";
 
-		// Ïðîâåðêà ÎÄÇ ôóíêöèè
+		// Проверка ОДЗ функции
 
 		if (f_logic(*a, *b, *c, res, i) == 0)
 		{
 
-			cout << setw(30) << "Âíå ÎÄÇ" << " |" << endl;
+			cout << setw(30) << "Вне ОДЗ" << " |" << endl;
 
 		}
 
 		else
 		{
 
-			cout << setw(30) << res << " |" << endl; // Âûâîä ðåçóëüòàòîâ ðàñ÷åòà ôóíêöèè
+			cout << setw(30) << res << " |" << endl; // Вывод результатов расчета функции
 
 		}
 
@@ -325,18 +325,17 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	// Èíèöèàëèçàöèÿ ïåðåìåííûõ
-
+	// Инициализация переменных
 	float a{}, b{}, c{}, dx{}, x_min{}, x_max{};
 
 
-	f_input_k(a, b, c);								// Ââîä êîýôôîâ
+	f_input_k(a, b, c);								// Ввод коэффов
 
-	f_input_x(x_min, dx, x_max);					// ÂÂîä ãðàíèö è øàãà
+	f_input_x(x_min, dx, x_max);					// ВВод границ и шага
 
-	f_check_input_x(x_min, dx, x_max);				// Ïðîâåðêà ãðàíèö è øàãà
+	f_check_input_x(x_min, dx, x_max);				// Проверка границ и шага
 
-	f_out_table(&a, &b, &c, &x_min, &dx, &x_max);	// Ðàñ÷åò ôóíêöèé è ïîñòðîåíèå òàáëèöû
+	f_out_table(&a, &b, &c, &x_min, &dx, &x_max);	// Расчет функций и построение таблицы
 
 	system("pause");
 
